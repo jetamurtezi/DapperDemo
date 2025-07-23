@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Company List";
+}
+<h2 class="mb-3">Company List</h2>
+
+@(Html.Kendo().Grid<DapperDemo.Models.Company>()
+    .Name("companyGrid")
+    .Columns(columns =>
+    {
+        columns.Bound(b => b.CompanyId).Hidden(true); 
+        columns.Bound(b => b.Name).Title("Name");
+        columns.Bound(b => b.Address).Title("Address");
+        columns.Bound(b => b.City).Title("City");
+        columns.Bound(b => b.State).Title("State");
+        columns.Bound(b => b.PostalCode).Title("Postal Code");
+        columns.Command(command =>
+        {
+            command.Edit().Text("Edit");
+            command.Destroy().Text("Delete");
+        }).Title("Changes");
+    })
+    .ToolBar(toolbar => { 
+        toolbar.Create().Text("Add Company"); 
+    })
+    .Editable(editable => editable.Mode(GridEditMode.InLine))
+    .Pageable()
+    .Sortable()
+    .Scrollable()
+    .Filterable()
+    .Events(events => events.DataBound("onGridDataBound")) 
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .Model(model =>
+        {
+            model.Id(p => p.CompanyId);
+        })
+        .Read(read => read.Action("GetCompanies", "Companies").Type(HttpVerbs.Post))
+        .Create(create => create.Action("CreateCompany", "Companies"))
+        .Update(update => update.Action("UpdateCompany", "Companies"))
+        .Destroy(destroy => destroy.Action("DeleteCompany", "Companies"))
+        .ServerOperation(false)
+    )
+)
+
+@section Scripts {
+    @Html.Kendo().DeferredScripts()
+
+    <script>
+        function onGridDataBound(e) {
+            const data = e.sender.dataSource.view();
+            console.log("Loaded data in Grid:", data);
+        }
+    </script>
+}

@@ -1,22 +1,115 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-  margin-bottom: 60px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 0;
+    color: #333;
 }
+
+h1, h2, h3, h4, h5 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+.container {
+    max-width: 1140px;
+    margin: auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 10px 0;
+}
+
+
+nav a {
+    margin-right: 15px;
+    color: #333;
+    font-weight: 500;
+}
+
+    nav a:hover {
+        color: #007bff;
+    }
+
+footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    border-top: 1px solid #ccc;
+    color: #555;
+}
+
+.k-grid {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    font-size: 14px;
+}
+
+.k-toolbar .k-button.k-grid-add {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 4px;
+    padding: 6px 16px;
+    font-size: 13px;
+    opacity: 1 !important;
+}
+
+    .k-toolbar .k-button.k-grid-add:hover {
+        background-color: #0056b3;
+    }
+
+
+.k-grid-header {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.k-grid-content {
+    background-color: #fff;
+}
+
+.k-command-cell .k-button {
+    margin: 0 2px;
+    padding: 4px 10px;
+    font-size: 13px;
+}
+
+    .k-command-cell .k-button.k-grid-delete {
+        background-color: #dc3545;
+        color: white;
+    }
+
+        .k-command-cell .k-button.k-grid-delete:hover {
+            background-color: #c82333;
+        }
+
+.navbar-nav .nav-link {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 500;
+}
+.navbar-nav.me-auto .nav-link {
+    margin-right: 10px;
+}
+
+
+
+
+
